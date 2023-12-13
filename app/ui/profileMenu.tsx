@@ -69,34 +69,34 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
             </div>
 
             <div className="flex flex-col gap-3 pt-10 items-start w-full">
-              <Menu.Item className="profile_menu-item">
+              <Menu.Item>
                 <Link
                   href={`/profile/${session?.user?.id}`}
-                  className="text-sm"
+                  className="profile_menu-item text-sm"
                 >
                   Work Preferences
                 </Link>
               </Menu.Item>
 
-              <Menu.Item className="profile_menu-item">
+              <Menu.Item>
                 <Link
                   href={`/profile/${session?.user?.id}`}
-                  className="text-sm"
+                  className="profile_menu-item text-sm"
                 >
                   Settings
                 </Link>
               </Menu.Item>
-              <Menu.Item className="profile_menu-item">
+              <Menu.Item>
                 <Link
                   href={`/profile/${session?.user?.id}`}
-                  className="text-sm"
+                  className="profile_menu-item text-sm"
                 >
                   Profile
                 </Link>
               </Menu.Item>
-              {/* <Menu.Item className="profile_menu-item">
+              {/* <Menu.Item>
                 <div
-                  className="text-sm"
+                  className="profile_menu-item text-sm"
                   onClick={() =>
                     handleDelete("user_01HFQ7WNYE6SB3MXY89WK1G2WS")
                   }
@@ -106,10 +106,10 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
               </Menu.Item> */}
             </div>
             <div className="w-full flexStart border-t border-nav-border mt-5 pt-5">
-              <Menu.Item className="profile_menu-item">
+              <Menu.Item>
                 <button
                   type="button"
-                  className="text-sm"
+                  className="profile_menu-item text-sm"
                   onClick={() => signOut()}
                 >
                   Sign out
