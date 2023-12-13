@@ -6,8 +6,8 @@ import { MouseEventHandler, ReactNode } from "react";
 
 type Props = {
   children: ReactNode | string;
-  type: "button" | "submit";
-  disabled: boolean;
+  type?: "button" | "submit";
+  disabled?: boolean;
   className?: string;
   plusIcon?: boolean;
   onClick?: MouseEventHandler;

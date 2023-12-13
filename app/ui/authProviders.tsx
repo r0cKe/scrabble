@@ -1,27 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getProviders, signIn } from "next-auth/react";
+import {
+  ClientSafeProvider,
+  LiteralUnion,
+  getProviders,
+  signIn,
+} from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import Button from "./button";
-
-type Provider = {
-  id: string;
-  name: string;
-  type: string;
-  singinUrl: string;
-  callbackUrl: string;
-  signinUrlParams: Record<string, string> | null;
-};
-
-type Providers = Record<string, Provider>;
+import { BuiltInProviderType } from "next-auth/providers/index";
 
 const AuthProviders = () => {
-  const [providers, setProviders] = useState<Providers | null>(null);
+  const [providers, setProviders] = useState<Record<
+    LiteralUnion<BuiltInProviderType, string>,
+    ClientSafeProvider
+  > | null>(null);
 
   useEffect(() => {
     const fetchProviders = async () => {
       const res = await getProviders();
+      console.log(res);
       setProviders(res);
     };
     fetchProviders();
@@ -30,7 +29,7 @@ const AuthProviders = () => {
   if (providers) {
     return (
       <div>
-        {Object.values(providers).map((provider: Provider, i) => (
+        {Object.values(providers).map((provider, i) => (
           <Button
             key={i}
             className="flexStart gap-1 bg-secondaryBg"
